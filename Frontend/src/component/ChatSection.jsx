@@ -127,6 +127,11 @@ export default function SkincareChat() {
           </button>
         </div>
       </div>
+
+      {/* Caution message */}
+      <div className="mt-4 text-sm text-gray-500 text-center max-w-2xl px-4">
+        Please wait patiently while I search for the best answers. This may take a few moments.
+      </div>
     </section>
   );
 }
