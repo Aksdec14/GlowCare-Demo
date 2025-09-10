@@ -7,10 +7,25 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
+// CORS allowed origins can be set via environment variable
+const allowedOrigins = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(",")
+  : ["http://localhost:5173"]; // default for local dev
 
 app.use(express.json());
-app.use(cors({ origin: "https://glow-care-tcmk.vercel.app" })); // allow Vite frontend
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like Postman or server-to-server)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS policy does not allow this origin"));
+    }
+  }
+}));
 
 // Health check
 app.get("/", (req, res) => {
@@ -31,8 +46,8 @@ app.post("/api/chat", (req, res) => {
     path: "/api/v1/chat/completions",
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`, // ✅ secure key
-      "HTTP-Referer": "https://glow-care-tcmk.vercel.app", // your frontend URL
+      Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`, // secure key from env
+      "HTTP-Referer": process.env.FRONTEND_URL || "http://localhost:5173", // dynamic referer
       "X-Title": "My Skincare Chatbot",
       "Content-Type": "application/json",
       "Content-Length": Buffer.byteLength(data),
