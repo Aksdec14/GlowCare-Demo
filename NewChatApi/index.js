@@ -32,7 +32,7 @@ app.post("/api/chat", (req, res) => {
     method: "POST",
     headers: {
       Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`, // ✅ secure key
-      "HTTP-Referer": "http://localhost:5173", // your frontend URL
+      "HTTP-Referer": "https://glow-care-tcmk.vercel.app", // your frontend URL
       "X-Title": "My Skincare Chatbot",
       "Content-Type": "application/json",
       "Content-Length": Buffer.byteLength(data),
