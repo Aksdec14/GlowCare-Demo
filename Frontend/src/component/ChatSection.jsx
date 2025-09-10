@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 // Get API URL from environment variables or fallback
-const API_URL = import.meta.env.VITE_API_URL || "https://glowcare-2yik.onrender.com";
+const API_URL = import.meta.env.VITE_API_URL || "https://glowcare-demo.onrender.com";
 
 export default function SkincareChat() {
   const [messages, setMessages] = useState([
