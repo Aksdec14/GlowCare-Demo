@@ -10,7 +10,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:5173" })); // allow Vite frontend
+app.use(cors({ origin: "https://glow-care-tcmk.vercel.app/" })); // allow Vite frontend
 
 // Health check
 app.get("/", (req, res) => {
