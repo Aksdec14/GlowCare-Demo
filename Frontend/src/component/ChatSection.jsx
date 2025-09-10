@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 // Get API URL from environment variables or fallback
 const API_URL = import.meta.env.VITE_API_URL || "https://glowcare-2yik.onrender.com";
@@ -10,6 +10,17 @@ export default function SkincareChat() {
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+
+  // Ref to scroll to the bottom
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, loading]);
 
   const handleSend = async () => {
     if (!input.trim()) return;
@@ -55,7 +66,6 @@ export default function SkincareChat() {
     }
   };
 
-  // Format bot text for line breaks and bullets
   const formatText = (text) => {
     if (!text) return "";
     let formatted = text.replace(/\n/g, "<br/>");
@@ -71,16 +81,19 @@ export default function SkincareChat() {
   };
 
   return (
-    <section className="bg-gradient-to-b from-white to-gray-100 text-gray-900 py-12 px-4 min-h-screen flex flex-col items-center">
+    <section className="bg-gradient-to-b from-white to-gray-100 text-gray-900 py-4 px-4 min-h-screen flex flex-col items-center">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-2 text-blue-600">
         Your AI Skincare Companion
       </h2>
-      <p className="text-gray-600 mb-8 text-center max-w-2xl">
+      <p className="text-gray-600 mb-4 text-center max-w-2xl">
         Get instant, science-backed advice for healthier, glowing skin.
       </p>
 
-      <div className="w-full max-w-2xl bg-white border border-gray-200 rounded-2xl shadow-lg p-6 flex flex-col space-y-4">
-        <div className="flex flex-col space-y-3 max-h-[400px] overflow-y-auto">
+      {/* Chat Container */}
+      <div className="flex flex-col bg-white border border-gray-200 rounded-2xl shadow-lg max-w-2xl w-full h-[80vh] sm:h-[70vh] md:h-[60vh]">
+        
+        {/* Messages Area */}
+        <div className="flex-1 p-4 overflow-y-auto space-y-4 min-h-0">
           {messages.map((msg, idx) => (
             <div
               key={idx}
@@ -108,9 +121,11 @@ export default function SkincareChat() {
               </div>
             </div>
           )}
+          <div ref={messagesEndRef} />
         </div>
 
-        <div className="flex mt-4">
+        {/* Input Section */}
+        <div className="border-t border-gray-200 p-4 flex items-center gap-2 bg-white">
           <input
             type="text"
             className="flex-1 px-4 py-2 rounded-l-2xl bg-gray-50 border border-gray-300 focus:outline-none"
@@ -128,7 +143,6 @@ export default function SkincareChat() {
         </div>
       </div>
 
-      {/* Caution message */}
       <div className="mt-4 text-sm text-gray-500 text-center max-w-2xl px-4">
         Please wait patiently while I search for the best answers. This may take a few moments.
       </div>
