@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 
 // Get API URL from environment variables or fallback
 const API_URL = import.meta.env.VITE_API_URL || "https://glowcare-2yik.onrender.com";
@@ -10,16 +10,6 @@ export default function SkincareChat() {
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-
-  const messagesEndRef = useRef(null);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages, loading]);
 
   const handleSend = async () => {
     if (!input.trim()) return;
@@ -88,7 +78,8 @@ export default function SkincareChat() {
       </p>
 
       {/* Chat Container */}
-      <div className="flex flex-col bg-white border border-gray-200 rounded-2xl shadow-lg max-w-2xl w-full h-[80vh] sm:h-[70vh] md:h-[60vh]">
+      <div className="flex flex-col bg-white border border-gray-200 rounded-2xl shadow-lg max-w-2xl w-full flex-grow"
+           style={{ height: "calc(100vh - 200px)" }}>
         
         {/* Messages */}
         <div className="flex-1 p-4 overflow-y-auto space-y-4 min-h-0">
@@ -119,7 +110,6 @@ export default function SkincareChat() {
               </div>
             </div>
           )}
-          <div ref={messagesEndRef} />
         </div>
 
         {/* Input Section */}
