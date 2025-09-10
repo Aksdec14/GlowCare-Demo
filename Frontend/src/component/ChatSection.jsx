@@ -124,7 +124,7 @@ export default function SkincareChat() {
           />
           <button
             onClick={handleSend}
-            className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-r-2xl hover:bg-blue-600 transition"
+            className="px-4 py-2 sm:px-6 sm:py-2 bg-blue-500 text-white text-sm sm:text-base font-semibold rounded-r-2xl hover:bg-blue-600 transition"
           >
             Send
           </button>
