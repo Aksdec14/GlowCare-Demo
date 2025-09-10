@@ -11,7 +11,6 @@ export default function SkincareChat() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Ref to scroll to the bottom
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -42,7 +41,6 @@ export default function SkincareChat() {
       const data = await res.json();
       const botMessage = data.reply || "Sorry, I couldn't understand that.";
 
-      // Typing effect
       let reply = "";
       const chars = botMessage.split("");
       chars.forEach((char, index) => {
@@ -92,7 +90,7 @@ export default function SkincareChat() {
       {/* Chat Container */}
       <div className="flex flex-col bg-white border border-gray-200 rounded-2xl shadow-lg max-w-2xl w-full h-[80vh] sm:h-[70vh] md:h-[60vh]">
         
-        {/* Messages Area */}
+        {/* Messages */}
         <div className="flex-1 p-4 overflow-y-auto space-y-4 min-h-0">
           {messages.map((msg, idx) => (
             <div
