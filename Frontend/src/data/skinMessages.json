@@ -1,0 +1,22 @@
+{
+  "Normal": {
+    "emoji": "✅",
+    "title": "Normal Skin",
+    "message": "• Your skin looks healthy and balanced.\n• Keep following your daily skincare routine with gentle cleansing and moisturizing.\n• Apply broad-spectrum sunscreen every day to protect against sun damage.\n• Stay hydrated by drinking plenty of water and eating a nutrient-rich diet.\n• Regular sleep and stress management can further enhance your skin’s glow."
+  },
+  "Concerning": {
+    "emoji": "⚠️",
+    "title": "Needs Attention",
+    "message": "• Some areas of your skin may need extra care.\n• Use gentle cleansers and nourishing moisturizers to avoid irritation.\n• Apply sunscreen daily to prevent further damage from UV rays.\n• Avoid harsh or abrasive products that may worsen dryness or redness.\n• Monitor your skin regularly and adjust your routine as needed."
+  },
+  "Immediate": {
+    "emoji": "🚨",
+    "title": "Immediate Care Recommended",
+    "message": "• Your skin shows signs that require urgent attention.\n• Please consult a dermatologist as soon as possible for professional advice and treatment.\n• Avoid using aggressive or experimental skincare products until evaluated.\n• Keep the skin clean and moisturized to prevent further irritation or infection.\n• Follow medical guidance strictly and report any changes or discomfort."
+  },
+  "Invalid": {
+    "emoji": "❌",
+    "title": "Invalid Image",
+    "message": "• The uploaded image is unclear or not suitable for analysis.\n• Make sure the area of skin is well-lit and in focus.\n• Avoid filters, editing tools, or blurry shots that distort details.\n• Take the photo from a close distance without shadows.\n• Upload a clear image to ensure accurate skin assessment."
+  }
+}
