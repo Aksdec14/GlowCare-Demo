@@ -1,6 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 
+// Get API URL from environment variables or fallback
+const API_URL = import.meta.env.VITE_API_URL || "https://glowcare-2yik.onrender.com";
+
 export default function SkincareChat() {
   const [messages, setMessages] = useState([
     { sender: "bot", text: "Hi 👋 I’m your personal skincare assistant. How can I help you today?" },
@@ -11,14 +14,13 @@ export default function SkincareChat() {
   const handleSend = async () => {
     if (!input.trim()) return;
 
-    // Add user message
     const newMessages = [...messages, { sender: "user", text: input }];
     setMessages(newMessages);
     setInput("");
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:3000/api/chat", {
+      const res = await fetch(`${API_URL}/api/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,12 +55,10 @@ export default function SkincareChat() {
     }
   };
 
-  // Helper to format bot text
+  // Format bot text for line breaks and bullets
   const formatText = (text) => {
     if (!text) return "";
-    // replace line breaks with <br>
     let formatted = text.replace(/\n/g, "<br/>");
-    // replace bullets "🔹" with <li>
     if (formatted.includes("🔹")) {
       formatted = formatted
         .split("🔹")
@@ -72,7 +72,6 @@ export default function SkincareChat() {
 
   return (
     <section className="bg-gradient-to-b from-white to-gray-100 text-gray-900 py-12 px-4 min-h-screen flex flex-col items-center">
-      {/* Headline */}
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-2 text-blue-600">
         Your AI Skincare Companion
       </h2>
@@ -80,7 +79,6 @@ export default function SkincareChat() {
         Get instant, science-backed advice for healthier, glowing skin.
       </p>
 
-      {/* Chat box */}
       <div className="w-full max-w-2xl bg-white border border-gray-200 rounded-2xl shadow-lg p-6 flex flex-col space-y-4">
         <div className="flex flex-col space-y-3 max-h-[400px] overflow-y-auto">
           {messages.map((msg, idx) => (
@@ -112,7 +110,6 @@ export default function SkincareChat() {
           )}
         </div>
 
-        {/* Input */}
         <div className="flex mt-4">
           <input
             type="text"
