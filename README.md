@@ -24,6 +24,14 @@ A responsive web application that provides users with personalized, science-back
 
 ❖ WEBSITE UI
 
+📂 Tools and Libraries
+
+✔ React.js for structure
+✔ Tailwind CSS for styling and responsiveness
+✔ Framer Motion (optional) for animations
+✔ React Hook Form (optional) for better input handling
+✔ Heroicons or SVGs for decorative icons
+
 <img width="1440" height="781" alt="Screenshot 2025-09-11 at 12 14 25 AM" src="https://github.com/user-attachments/assets/af078f77-a136-4ae1-bd5f-2d90396a3988" />
 <img width="1440" height="782" alt="Screenshot 2025-09-11 at 12 14 46 AM" src="https://github.com/user-attachments/assets/a78be6e8-cae1-41aa-a559-27403988f834" />
 
