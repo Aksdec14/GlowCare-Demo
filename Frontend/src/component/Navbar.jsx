@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 
 import React, { useState } from "react";
-import logo from '../assets/images/logo-svg.svg'; // Make sure this path is correct
+import logo from '../assets/images/logo-svg.svg'; // Ensure this path is correct
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-blue-600 text-white p-4 fixed w-full z-50 shadow-md">
+    <nav className="bg-blue-600 text-white p-4 fixed top-0 left-0 w-full z-50 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center cursor-pointer" onClick={() => scrollToSection("home")}>
           <img src={logo} alt="Site Logo" className="h-8 w-auto" />
@@ -47,16 +47,8 @@ const Navbar = () => {
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="focus:outline-none"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="focus:outline-none">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMenuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
               ) : (
