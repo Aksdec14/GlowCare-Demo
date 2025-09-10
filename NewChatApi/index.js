@@ -47,7 +47,7 @@ app.post("/api/chat", (req, res) => {
     method: "POST",
     headers: {
       Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`, // secure key from env
-      "HTTP-Referer": process.env.FRONTEND_URL || "http://localhost:5173", // dynamic referer
+      "HTTP-Referer": process.env.FRONTEND_URL || "https://glow-care-demo-umber.vercel.app", // dynamic referer
       "X-Title": "My Skincare Chatbot",
       "Content-Type": "application/json",
       "Content-Length": Buffer.byteLength(data),
