@@ -11,7 +11,6 @@ export default function SkincareChat() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Ref to scroll to the bottom
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -42,7 +41,6 @@ export default function SkincareChat() {
       const data = await res.json();
       const botMessage = data.reply || "Sorry, I couldn't understand that.";
 
-      // Typing effect
       let reply = "";
       const chars = botMessage.split("");
       chars.forEach((char, index) => {
@@ -81,7 +79,7 @@ export default function SkincareChat() {
   };
 
   return (
-    <section className="bg-gradient-to-b from-white to-gray-100 text-gray-900 py-4 px-4 min-h-screen flex flex-col items-center">
+    <section className="bg-gradient-to-b from-white to-gray-100 text-gray-900 min-h-screen flex flex-col items-center px-4 py-4">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-2 text-blue-600">
         Your AI Skincare Companion
       </h2>
@@ -90,7 +88,7 @@ export default function SkincareChat() {
       </p>
 
       {/* Chat Container */}
-      <div className="flex flex-col bg-white border border-gray-200 rounded-2xl shadow-lg max-w-2xl w-full h-[80vh] sm:h-[70vh] md:h-[60vh]">
+      <div className="flex flex-col bg-white border border-gray-200 rounded-2xl shadow-lg max-w-2xl w-full h-full sm:h-[80vh] md:h-[70vh] lg:h-[60vh]">
         
         {/* Messages Area */}
         <div className="flex-1 p-4 overflow-y-auto space-y-4 min-h-0">
