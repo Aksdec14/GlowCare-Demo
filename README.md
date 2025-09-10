@@ -24,7 +24,12 @@ A responsive web application that provides users with personalized, science-back
 
 #WebSite View
 
+<img width="1440" height="781" alt="Screenshot 2025-09-11 at 12 14 25 AM" src="https://github.com/user-attachments/assets/af078f77-a136-4ae1-bd5f-2d90396a3988" />
+<img width="1440" height="782" alt="Screenshot 2025-09-11 at 12 14 46 AM" src="https://github.com/user-attachments/assets/a78be6e8-cae1-41aa-a559-27403988f834" />
 
+<img width="1440" height="777" alt="Screenshot 2025-09-11 at 12 15 09 AM" src="https://github.com/user-attachments/assets/09835b7b-5715-4996-a82a-e2450497e6ae" />
+
+<img width="1440" height="775" alt="Screenshot 2025-09-11 at 12 15 32 AM" src="https://github.com/user-attachments/assets/d4604d62-d4f8-47f9-8635-0113557beb63" />
 
 
 
