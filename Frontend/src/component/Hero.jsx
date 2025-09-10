@@ -2,8 +2,8 @@ import React from 'react';
 
 const Hero = () => {
   return (
-    <div id="home">
-      <section className="bg-white text-gray-800">
+    <div id="home" className="pt-16 md:pt-20 bg-white text-gray-800">
+      <section>
         <div className="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 lg:px-8 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Text Section */}
